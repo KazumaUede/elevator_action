@@ -1,0 +1,1 @@
+html,body{min-height:100%;min-width:100%}header{height:60px;z-index:5;width:100%;background-color:darkolivegreen;padding:10px}header h1{font-size:32px;color:azure}.wrapper{min-height:calc(100vh - 200px)}footer{width:100%;margin-top:10px;border-top:2px solid black}footer nav ul li{display:inline-block}
