@@ -19,7 +19,9 @@
 				<li id ="4F"></li>
 				<li id ="3F"></li>
 				<li id ="2F"></li>
-				<li id ="1F"></li>
+				<li id ="1F">
+					<img src="/elevator_action/image/icon_74.png"  id ="people">
+				</li>
 			</ul>
 		</div>
 		<div class ="elevator" id ="elevatorB">

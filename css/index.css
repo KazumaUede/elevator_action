@@ -93,8 +93,10 @@
 }
 
 .city #people {
-  height: 60%;
+  height: 20%;
   width: auto;
   object-fit: contain;
-  background-image: red;
+  color: red;
+  position: absolute;
+  bottom: 0;
 }
