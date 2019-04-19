@@ -1,6 +1,6 @@
 $(function(){
 	for (var i = 0; i < 6; i++){
-		$('#elevator'+ i +' #1F').css({"background-color" : "yellow"});
+		$('#elevator'+ i +' #1F').css({"background-color" : "#f4d420"});
 	}
 
 	var flug = true;
@@ -8,11 +8,13 @@ $(function(){
 	function up_elevator(num,floor,time,array){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
-			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "blue"});
-			$('#elevator'+ num +' #' + ++floor +'F').css({"background-color" : "yellow"});
+			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "#26499d"});
+			$('#elevator'+ num +' #' + ++floor +'F').css({"background-color" : "#f4d420"});
 			var timer = array.find(item => item === floor)? 5000 : 2000;
 			// if(floor <13){
-			if(floor != array.slice(-1)[0]){
+			// if(floor != array.slice(-1)[0]){
+			if(floor < array.reduce((a,b)=>a>b?a:b)){
+				// .reduce((a,b)=>a>b?a:b)
 				console.log(floor);
 				up_elevator(num,floor,timer,array);
 			}else{
@@ -25,32 +27,50 @@ $(function(){
 	function down_elevator(num,floor,time){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
-			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "blue"});
-			$('#elevator'+ num +' #' + --floor +'F').css({"background-color" : "yellow"});
+			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "#26499d"});
+			$('#elevator'+ num +' #' + --floor +'F').css({"background-color" : "#f4d420"});
 			if(floor >1){
 				down_elevator(num,floor,2000);
 			}else{
-				// up_elevator(num,floor);
+				var ary = [];
+				ary = people();
+				console.log(ary);
+				notice_elevator(num,ary);
+				up_elevator(num,1,5000,ary);
 			}
 		},time);
 	}
 	//止まる階をオレンジで予告
 	function notice_elevator(num,array){
-		for(var i = 1; i < 13; i++){
+		for(var i = 1; i < 14; i++){
 			if(array.find(item => item === i)){
-				$('#elevator'+ num +' #' + i +'F').css({"background-color" : "orange"});
+				$('#elevator'+ num +' #' + i +'F').css({"background-color" : "#f18e10"});
 			}
 
 		}
 	}
 
+	function people(){
+		var min = 2 ;
+		var max = 13 ;
+		var array = [];
+		for(var i = 0; i < 10; i++){
+			 var a = Math.floor( Math.random() * (max + 1 - min) ) + min;
+			array.push(a);
+		}
+		return array;
+	}
 
 
 
 	$(function(){
-		var ary = [2,4,6,8,12];
-		notice_elevator(0,ary);
-		up_elevator(0,1,2000,ary);
+		for(var i = 0; i < 6; i++){
+			var ary = [];
+			ary = people();
+			console.log(ary);
+			notice_elevator(i,ary);
+			up_elevator(i,1,2000,ary);
+		}
 	});
 });
 
