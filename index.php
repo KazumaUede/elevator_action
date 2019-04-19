@@ -1,7 +1,7 @@
 <?php
 	$pagetitle = "Elevator_action";
 	require_once("./template/system_header.php");
-	$floor = 12;
+	$floor = 13;
 	$elevator = 6;
 ?>
 <div class ="city">

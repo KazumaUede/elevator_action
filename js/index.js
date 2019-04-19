@@ -2,42 +2,55 @@ $(function(){
 	for (var i = 0; i < 6; i++){
 		$('#elevator'+ i +' #1F').css({"background-color" : "yellow"});
 	}
-	var j = 1;
-	var k = 1;
+
 	var flug = true;
-	function up_elevator(num,floor,time){
+	//エレベーターをあげる
+	function up_elevator(num,floor,time,array){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
 			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "blue"});
 			$('#elevator'+ num +' #' + ++floor +'F').css({"background-color" : "yellow"});
-			console.log(num);
-			if(floor <13){
-				up_elevator(num,floor,time);
+			var timer = array.find(item => item === floor)? 5000 : 2000;
+			// if(floor <13){
+			if(floor != array.slice(-1)[0]){
+				console.log(floor);
+				up_elevator(num,floor,timer,array);
 			}else{
-				down_elevator(num,floor,time);
+				console.log(floor);
+				down_elevator(num,floor,timer);
 			}
 		},time);
 	}
+	//エレベーターを下げる
 	function down_elevator(num,floor,time){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
 			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "blue"});
 			$('#elevator'+ num +' #' + --floor +'F').css({"background-color" : "yellow"});
-			console.log(num);
 			if(floor >1){
-				down_elevator(num,floor,time);
+				down_elevator(num,floor,2000);
 			}else{
-				up_elevator(num,floor,time);
+				// up_elevator(num,floor);
 			}
 		},time);
 	}
+	//止まる階をオレンジで予告
+	function notice_elevator(num,array){
+		for(var i = 1; i < 13; i++){
+			if(array.find(item => item === i)){
+				$('#elevator'+ num +' #' + i +'F').css({"background-color" : "orange"});
+			}
+
+		}
+	}
+
+
+
+
 	$(function(){
-		up_elevator(0,j,1000);
-		up_elevator(1,k,2000);
-		up_elevator(2,k,3000);
-		up_elevator(3,k,4000);
-		up_elevator(4,k,5000);
-		up_elevator(5,k,6000);
+		var ary = [2,4,6,8,12];
+		notice_elevator(0,ary);
+		up_elevator(0,1,2000,ary);
 	});
 });
 
