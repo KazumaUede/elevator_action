@@ -1,7 +1,12 @@
 <?php
 ?>
 <div class ="building">
-	<div class ="gate">
+	<div class ="gates">
+		<?php
+			for($i = 0; $i <$floor ; ++$i){
+				echo '<div class ="gate" id ="' . ($floor - $i ) .'F"></div>';
+			}
+			?>
 	</div>
 	<div class ="elevators">
 		<?php

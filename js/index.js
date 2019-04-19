@@ -8,8 +8,15 @@ $(function(){
 	function up_elevator(num,floor,time,array){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
+			$('#elevator'+ num +' #' + floor +'F .people').appendTo('#elevator'+ num +' #' + (floor + 1) +'F')
 			$('#elevator'+ num +' #' + floor +'F').css({"background-color" : "#26499d"});
 			$('#elevator'+ num +' #' + ++floor +'F').css({"background-color" : "#f4d420"});
+			//人を下ろす
+			if(array.find(item => item === floor)){
+				console.log('#people' + floor);
+				$('#elevator'+ num +' #' + floor +'F #people' + floor).remove();
+
+			}
 			var timer = array.find(item => item === floor)? 5000 : 2000;
 			// if(floor <13){
 			// if(floor != array.slice(-1)[0]){
@@ -32,11 +39,12 @@ $(function(){
 			if(floor >1){
 				down_elevator(num,floor,2000);
 			}else{
-				var ary = [];
-				ary = people();
-				console.log(ary);
-				notice_elevator(num,ary);
-				up_elevator(num,1,5000,ary);
+				setpeople(num,5000);
+				// var ary = [];
+				// ary = people();
+				// console.log(ary);
+				// notice_elevator(num,ary);
+				// up_elevator(num,1,5000,ary);
 			}
 		},time);
 	}
@@ -60,17 +68,32 @@ $(function(){
 		}
 		return array;
 	}
-
+	function setpeople(num,time){
+			var ary = [];
+			ary = people();
+			console.log(ary);
+			ary.forEach(function( value ) {
+				$('#elevator'+ num +'  #1F').append('<div class="people" id ="people'+ value +'"></div>');
+			});
+			notice_elevator(num,ary);
+			up_elevator(num,1,time,ary);
+	}
 
 
 	$(function(){
 		for(var i = 0; i < 6; i++){
-			var ary = [];
-			ary = people();
-			console.log(ary);
-			notice_elevator(i,ary);
-			up_elevator(i,1,2000,ary);
+			setpeople(i,2000);
 		}
+		// for(var i = 0; i < 6; i++){
+		// 	var ary = [];
+		// 	ary = people();
+		// 	console.log(ary);
+		// 	ary.forEach(function( value ) {
+		// 		$('#elevator'+ i +'  #1F').append('<div class="people" id ="people'+ value +'"></div>');
+		// 	});
+		// 	notice_elevator(i,ary);
+		// 	up_elevator(i,1,2000,ary);
+		// }
 	});
 });
 

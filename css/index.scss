@@ -11,24 +11,32 @@
 		.building{
 			// height: calc(90vh - 80px);
 			height: calc(1000px);
-			width : 800px;
+			width : 780px;
 			background-color:#c8ced1;
 			position:absolute;
+			padding-top: 10px;
 			bottom: 0;
 			left: 70px;
-			.gate {
-				height : calc(100% / 13 - 10px);
+			display: flex;
+			.gates{
+				height :100%;
 				width: 100px;
-				background-color:ghostwhite;
-				position:absolute;
-				bottom: 0;
-				display: flex;
-			}
+				.gate {
+					height : calc(100% / 13 - 10px);
+					width: 100px;
+					background-color:#fcfdf1;
+					margin-top :10px;
+					margin-left : 20px;
+					&#1F{
+						display: table;
+					}
 
+				}
+			}
 			.elevators{
 				height :100%;
 				width :calc(100% - 100px);
-				margin-left:100px;
+				// margin-left:100px;
 				display: flex;
 				.elevator{
 					@for $j from 2 through 6 {
@@ -39,10 +47,11 @@
 					.standby {
 						height : calc(100% / 13 - 10px);
 						width: 75px;
-						// background-color: green;
+						background-color: green;
 						position:absolute;
 						bottom: 0;
-						display: flex;
+						// display: flex;
+						display: table;
 					}
 					display: flex;
 					ul{
@@ -58,7 +67,8 @@
 							background-color: #26499d;
 							margin-top :10px;
 							margin-left: 50px;
-							display: flex;
+							// display: flex;
+							display: table;
 						}
 					}
 				}
@@ -71,12 +81,12 @@
 		width: 100%;
 		background-color: #769d41;
 	}
-	#people{
-		height:20%;
-		width:auto;
-		object-fit: contain;
-		color: red;
-		position: absolute;
-		bottom : 0;
+	.people{
+		height: 10px;
+		width: 10px;
+		border-radius:50%;
+		background-color: red;
+		border: 1px solid #00090d;
+		display: inline-block
 	}
 }
