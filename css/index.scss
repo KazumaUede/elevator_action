@@ -2,20 +2,22 @@
 	min-height: 100%;
 	min-width: 100%;
 	.sky{
-		min-height: calc(90vh - 60px);
+		// min-height: calc(90vh - 60px);
+		min-height: calc(1200px);
 		min-width: 100%;
 		background-color: skyblue;
 		position: relative;
 		display: flex;
 		.building{
-			height: calc(90vh - 80px);
-			width : 760px;
+			// height: calc(90vh - 80px);
+			height: calc(1000px);
+			width : 800px;
 			background-color:#c8ced1;
 			position:absolute;
 			bottom: 0;
 			left: 70px;
 			.gate {
-				height: 50px;
+				height : calc(100% / 13 - 10px);
 				width: 100px;
 				background-color:ghostwhite;
 				position:absolute;
@@ -35,9 +37,9 @@
 						}
 					}
 					.standby {
-						height:50px;
+						height : calc(100% / 13 - 10px);
 						width: 75px;
-						background-color: green;
+						// background-color: green;
 						position:absolute;
 						bottom: 0;
 						display: flex;
@@ -67,7 +69,7 @@
 	.ground{
 		height: 10vh;
 		width: 100%;
-		background-color: tan;
+		background-color: #769d41;
 	}
 	#people{
 		height:20%;

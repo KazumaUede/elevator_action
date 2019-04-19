@@ -78,18 +78,6 @@ $(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 $(function(){
 	var appendhtml = "";
 	$(document).on('click','#button',function(){

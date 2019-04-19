@@ -6,7 +6,8 @@
 	<div class ="elevators">
 		<?php
 			for($i = 0; $i <$elevator ; ++$i){
-				echo '<div class ="elevator" id ="elevator'. $i .'"><div class ="standby" id ="stand'. $i .'"></div>';
+				echo '<div class ="elevator" id ="elevator'. $i .'">';
+				echo '<div class ="standby" id ="stand'. $i .'"></div>';
 				echo '<ul class="floors">';
 				for($j = 0; $j < $floor; ++$j){
 					echo '<li id ="' . ($floor - $j ) .'F"></li>';
