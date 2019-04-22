@@ -7,71 +7,134 @@
     background-color: skyblue;
     position: relative;
     display: flex; }
-    .city .sky .building {
-      height: calc(1000px);
-      width: 780px;
-      background-color: #c8ced1;
+    .city .sky .buildings {
+      height: 1100px;
+      width: 900px;
       position: absolute;
-      padding-top: 10px;
       bottom: 0;
       left: 70px;
       display: flex; }
-      .city .sky .building .gates {
+      .city .sky .buildings .gates {
         height: 100%;
-        width: 100px; }
-        .city .sky .building .gates .gate {
-          height: calc(100% / 13 - 10px);
+        width: 100px;
+        margin-right: 50px; }
+        .city .sky .buildings .gates .gate {
+          height: calc(100% / 13 - 20px);
           width: 100px;
+          font-size: 20px;
           background-color: #fcfdf1;
-          margin-top: 10px;
+          margin-top: 20px;
           margin-left: 20px; }
-          .city .sky .building .gates .gate#1F {
+          .city .sky .buildings .gates .gate#F1 {
             display: table; }
-      .city .sky .building .elevators {
-        height: 100%;
-        width: calc(100% - 100px);
-        display: flex; }
-        .city .sky .building .elevators .elevator {
+          .city .sky .buildings .gates .gate#F2 {
+            background-color: #cd1327;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F3 {
+            background-color: #182b82;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F4 {
+            background-color: #298e7f;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F5 {
+            background-color: #4e7247;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F6 {
+            background-color: #3a4659;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F7 {
+            background-color: #ac5482;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F8 {
+            background-color: #26499d;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F9 {
+            background-color: #fff3da;
+            color: lblack; }
+          .city .sky .buildings .gates .gate#F10 {
+            background-color: #fcfdfd;
+            color: lblack; }
+          .city .sky .buildings .gates .gate#F11 {
+            background-color: #a91f2b;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F12 {
+            background-color: #e61220;
+            color: #fcfdfd; }
+          .city .sky .buildings .gates .gate#F13 {
+            background-color: #a2acb0;
+            color: lblack; }
+      .city .sky .buildings .building {
+        height: 1100px;
+        width: 700px;
+        background-color: #c8ced1; }
+        .city .sky .buildings .building .elevators {
+          height: 100%;
+          width: calc(100% - 100px);
           display: flex; }
-          .city .sky .building .elevators .elevator:nth-child(2) {
-            margin-left: 50px; }
-          .city .sky .building .elevators .elevator:nth-child(3) {
-            margin-left: 50px; }
-          .city .sky .building .elevators .elevator:nth-child(4) {
-            margin-left: 50px; }
-          .city .sky .building .elevators .elevator:nth-child(5) {
-            margin-left: 50px; }
-          .city .sky .building .elevators .elevator:nth-child(6) {
-            margin-left: 50px; }
-          .city .sky .building .elevators .elevator .standby {
-            height: calc(100% / 13 - 10px);
-            width: 75px;
-            background-color: green;
-            position: absolute;
-            bottom: 0;
-            display: table; }
-          .city .sky .building .elevators .elevator ul {
-            height: 100%;
-            width: 50px;
-            margin-right: 10px;
-            list-style: none; }
-            .city .sky .building .elevators .elevator ul li {
-              height: calc(100% / 13 - 10px);
-              width: 50px;
-              background-color: #26499d;
-              margin-top: 10px;
-              margin-left: 50px;
+          .city .sky .buildings .building .elevators .elevator {
+            display: flex; }
+            .city .sky .buildings .building .elevators .elevator:nth-child(2) {
+              margin-left: 50px; }
+            .city .sky .buildings .building .elevators .elevator:nth-child(3) {
+              margin-left: 50px; }
+            .city .sky .buildings .building .elevators .elevator:nth-child(4) {
+              margin-left: 50px; }
+            .city .sky .buildings .building .elevators .elevator:nth-child(5) {
+              margin-left: 50px; }
+            .city .sky .buildings .building .elevators .elevator:nth-child(6) {
+              margin-left: 50px; }
+            .city .sky .buildings .building .elevators .elevator .standby {
+              height: calc(100% / 13 - 20px);
+              width: 75px;
+              background-color: green;
+              position: absolute;
+              bottom: 0;
               display: table; }
+            .city .sky .buildings .building .elevators .elevator ul {
+              height: 100%;
+              width: 50px;
+              margin-right: 10px;
+              list-style: none; }
+              .city .sky .buildings .building .elevators .elevator ul li {
+                height: calc(100% / 13 - 20px);
+                width: 60px;
+                background-color: #26499d;
+                margin-top: 20px;
+                margin-left: 50px;
+                display: table; }
   .city .ground {
     height: 10vh;
     width: 100%;
     background-color: #769d41; }
   .city .people {
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 12px;
     border-radius: 50%;
-    background-color: red;
     border: 1px solid #00090d;
     display: inline-block; }
+    .city .people#people2 {
+      background-color: #cd1327; }
+    .city .people#people3 {
+      background-color: #182b82; }
+    .city .people#people4 {
+      background-color: #298e7f; }
+    .city .people#people5 {
+      background-color: #4e7247; }
+    .city .people#people6 {
+      background-color: #3a4659; }
+    .city .people#people7 {
+      background-color: #ac5482; }
+    .city .people#people8 {
+      background-color: #26499d; }
+    .city .people#people9 {
+      background-color: #fff3da; }
+    .city .people#people10 {
+      background-color: #fcfdfd; }
+    .city .people#people11 {
+      background-color: #a91f2b; }
+    .city .people#people12 {
+      background-color: #e61220; }
+    .city .people#people13 {
+      background-color: #a2acb0; }
 
 /*# sourceMappingURL=index.css.map */
