@@ -86,7 +86,6 @@
             .city .sky .buildings .building .elevators .elevator .standby {
               height: calc(100% / 13 - 20px);
               width: 75px;
-              background-color: green;
               position: absolute;
               bottom: 0;
               display: table; }
