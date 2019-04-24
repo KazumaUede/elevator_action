@@ -27,40 +27,40 @@
           margin-left: 20px; }
           .city .sky .buildings .gates .gate#F1 {
             display: table; }
-          .city .sky .buildings .gates .gate#F2 {
+          .city .sky .buildings .gates .gate:nth-child(12) {
             background-color: #cd1327;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F3 {
+          .city .sky .buildings .gates .gate:nth-child(11) {
             background-color: #182b82;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F4 {
+          .city .sky .buildings .gates .gate:nth-child(10) {
             background-color: #298e7f;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F5 {
+          .city .sky .buildings .gates .gate:nth-child(9) {
             background-color: #4e7247;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F6 {
+          .city .sky .buildings .gates .gate:nth-child(8) {
             background-color: #3a4659;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F7 {
+          .city .sky .buildings .gates .gate:nth-child(7) {
             background-color: #ac5482;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F8 {
+          .city .sky .buildings .gates .gate:nth-child(6) {
             background-color: #26499d;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F9 {
+          .city .sky .buildings .gates .gate:nth-child(5) {
             background-color: #fff3da;
             color: lblack; }
-          .city .sky .buildings .gates .gate#F10 {
+          .city .sky .buildings .gates .gate:nth-child(4) {
             background-color: #fcfdfd;
             color: lblack; }
-          .city .sky .buildings .gates .gate#F11 {
+          .city .sky .buildings .gates .gate:nth-child(3) {
             background-color: #a91f2b;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F12 {
+          .city .sky .buildings .gates .gate:nth-child(2) {
             background-color: #e61220;
             color: #fcfdfd; }
-          .city .sky .buildings .gates .gate#F13 {
+          .city .sky .buildings .gates .gate:nth-child(1) {
             background-color: #a2acb0;
             color: lblack; }
       .city .sky .buildings .building {
@@ -89,18 +89,20 @@
               position: absolute;
               bottom: 0;
               display: table; }
-            .city .sky .buildings .building .elevators .elevator ul {
+            .city .sky .buildings .building .elevators .elevator .floors {
               height: 100%;
               width: 50px;
               margin-right: 10px;
               list-style: none; }
-              .city .sky .buildings .building .elevators .elevator ul li {
+              .city .sky .buildings .building .elevators .elevator .floors .floor {
                 height: calc(100% / 13 - 20px);
                 width: 60px;
                 background-color: #26499d;
                 margin-top: 20px;
                 margin-left: 50px;
                 display: table; }
+                .city .sky .buildings .building .elevators .elevator .floors .floor:nth-child(13) {
+                  background-color: #f4d420; }
   .city .ground {
     height: 10vh;
     width: 100%;
@@ -111,29 +113,29 @@
     border-radius: 50%;
     border: 1px solid #00090d;
     display: inline-block; }
-    .city .people#people2 {
-      background-color: #cd1327; }
-    .city .people#people3 {
-      background-color: #182b82; }
-    .city .people#people4 {
-      background-color: #298e7f; }
-    .city .people#people5 {
-      background-color: #4e7247; }
-    .city .people#people6 {
-      background-color: #3a4659; }
-    .city .people#people7 {
-      background-color: #ac5482; }
-    .city .people#people8 {
-      background-color: #26499d; }
-    .city .people#people9 {
-      background-color: #fff3da; }
-    .city .people#people10 {
-      background-color: #fcfdfd; }
     .city .people#people11 {
+      background-color: #cd1327; }
+    .city .people#people10 {
+      background-color: #182b82; }
+    .city .people#people9 {
+      background-color: #298e7f; }
+    .city .people#people8 {
+      background-color: #4e7247; }
+    .city .people#people7 {
+      background-color: #3a4659; }
+    .city .people#people6 {
+      background-color: #ac5482; }
+    .city .people#people5 {
+      background-color: #26499d; }
+    .city .people#people4 {
+      background-color: #fff3da; }
+    .city .people#people3 {
+      background-color: #fcfdfd; }
+    .city .people#people2 {
       background-color: #a91f2b; }
-    .city .people#people12 {
+    .city .people#people1 {
       background-color: #e61220; }
-    .city .people#people13 {
+    .city .people#people0 {
       background-color: #a2acb0; }
 
 /*# sourceMappingURL=index.css.map */
