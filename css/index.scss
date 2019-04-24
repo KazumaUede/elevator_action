@@ -60,51 +60,51 @@
 					&#F1{
 						display: table;
 					}
-					&#F2{
+					&:nth-child(#{12}){
 						background-color: $red;
 						color: $white;
 					}
-					&#F3{
+					&:nth-child(#{11}){
 						background-color: $marine;
 						color: $white;
 					}
-					&#F4{
+					&:nth-child(#{10}){
 						background-color: $turquoize;
 						color: $white;
 					}
-					&#F5{
+					&:nth-child(#{9}){
 						background-color: $green;
 						color: $white;
 					}
-					&#F6{
+					&:nth-child(#{8}){
 						background-color: $bblue;
 						color: $white;
 					}
-					&#F7{
+					&:nth-child(#{7}){
 						background-color: $azalea;
 						color: $white;
 					}
-					&#F8{
+					&:nth-child(#{6}){
 						background-color: $cblue;
 						color: $white;
 					}
-					&#F9{
+					&:nth-child(#{5}){
 						background-color: $light;
 						color: lblack;
 					}
-					&#F10{
+					&:nth-child(#{4}){
 						background-color: $white;
 						color: lblack;
 					}
-					&#F11{
+					&:nth-child(#{3}){
 						background-color: $cardinal;
 						color: $white;
 					}
-					&#F12{
+					&:nth-child(#{2}){
 						background-color: $pred;
 						color: $white;
 					}
-					&#F13{
+					&:nth-child(#{1}){
 						background-color: $cgray;
 						color: lblack;
 					}
@@ -135,27 +135,29 @@
 						.standby {
 							height : calc(100% / 13 - 20px);
 							width: 75px;
-							// background-color: green;
+							background-color: green;
 							position:absolute;
 							bottom: 0;
-							// display: flex;
 							display: table;
 						}
 						display: flex;
-						ul{
+						.floors{
 							height :100%;
 							width : 50px;
-							// width : calc(100% / 6 - 10px);
-							// background-color: blue;
 							margin-right :10px;
+
 							list-style: none;
-							li{
+							.floor{
 								height : calc(100% / 13 - 20px);
 								width : 60px;
 								background-color: #26499d;
 								margin-top :20px;
 								margin-left: 50px;
 								display: table;
+								&:nth-child(#{13}){
+									background-color: $yellow;
+
+								}
 							}
 						}
 					}

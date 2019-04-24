@@ -15,10 +15,10 @@ $(function(){
 	}
 	var stand = [];
 
-
-	for (var i = 0; i < 6; i++){
-		$('#elevator'+ i +' #F1').css({"background-color" : "#f4d420"});
-	}
+// $('.floor:eq(12)').css({"background-color" : "#f4d420"});
+	// for (var i = 0; i < 6; i++){
+		// $('#elevator'+ i +' #F1').css({"background-color" : "#f4d420"});
+	// }
 
 
 	//エレベーターをあげる
