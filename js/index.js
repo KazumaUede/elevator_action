@@ -7,6 +7,8 @@ $(function(){
 	var priority =[];
 	var stand = [];
 	var members = [];
+	var left = '.left ';
+	var right = '.right ';
 	for (var i = 0; i < elevator; i++){
 		flag.push(true);
 		ary.push([]);
