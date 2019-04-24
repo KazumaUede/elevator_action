@@ -106,20 +106,28 @@ $(function(){
 			var min = 0 ;
 			var max = 11 ;
 			var a = Math.floor( Math.random() * (max + 1 - min) ) + min;
+
+
 			//振り分ける(すでに人が乗っているエレベーターが優先)
-			if(flag[0] === true && priority[1] === false && priority[2] === false && priority[3] === false && priority[4] === false && priority[5] === false){
-				enter_the_elevator(0,a);
-			}else if(flag[1] === true && priority[2] === false && priority[3] === false && priority[4] === false && priority[5] === false){
-				enter_the_elevator(1,a);
-			}else if(flag[2] === true && priority[3] === false && priority[4] === false && priority[5] === false){
-				enter_the_elevator(2,a);
-			}else if(flag[3] === true && priority[4] === false && priority[5] === false){
-				enter_the_elevator(3,a);
-			}else if(flag[4] === true && priority[5] === false){
-				enter_the_elevator(4,a);
-			}else if(flag[5] === true){
-				enter_the_elevator(5,a);
-			}else{
+
+			var standflag = true;
+			for(var i = 0; i <= elevator-1; ++i){
+				if(flag[i]){
+					var priflag = true;
+					for(var j = i+1; j <= elevator-1;++j){
+						if(priority[j]){
+							priflag = false;
+							break;
+						}
+					}
+					if(priflag){
+						enter_the_elevator(i,a);
+						standflag = false;
+						break;
+					}
+				}
+			}
+			if(standflag){
 				stand.push(a);
 				$('.standby').eq(0).append('<div class="people" id ="people'+ a +'"></div>');
 			}
@@ -148,7 +156,7 @@ $(function(){
 
 
 	$(function(){
-		for(var i = 0; i < 6; i++){
+		for(var i = 0; i < elevator; i++){
 			standby(i,flag[i],ary[i]);
 		}
 		people2();
