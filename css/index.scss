@@ -135,7 +135,7 @@
 						.standby {
 							height : calc(100% / 13 - 20px);
 							width: 75px;
-							background-color: green;
+							// background-color: green;
 							position:absolute;
 							bottom: 0;
 							display: table;
@@ -177,40 +177,40 @@
 		border-radius:50%;
 		border: 1px solid #00090d;
 		display: inline-block;
-		&#people2{
+		&#people11{
 			background-color: $red;
 		}
-		&#people3{
+		&#people10{
 			background-color: $marine;
 		}
-		&#people4{
+		&#people9{
 			background-color: $turquoize;
 		}
-		&#people5{
+		&#people8{
 			background-color: $green;
 		}
-		&#people6{
+		&#people7{
 			background-color: $bblue;
 		}
-		&#people7{
+		&#people6{
 			background-color: $azalea;
 		}
-		&#people8{
+		&#people5{
 			background-color: $cblue;
 		}
-		&#people9{
+		&#people4{
 			background-color: $light;
 		}
-		&#people10{
+		&#people3{
 			background-color: $white;
 		}
-		&#people11{
+		&#people2{
 			background-color: $cardinal;
 		}
-		&#people12{
+		&#people1{
 			background-color: $pred;
 		}
-		&#people13{
+		&#people0{
 			background-color: $cgray;
 		}
 	}

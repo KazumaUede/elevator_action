@@ -86,7 +86,6 @@
             .city .sky .buildings .building .elevators .elevator .standby {
               height: calc(100% / 13 - 20px);
               width: 75px;
-              background-color: green;
               position: absolute;
               bottom: 0;
               display: table; }
@@ -114,29 +113,29 @@
     border-radius: 50%;
     border: 1px solid #00090d;
     display: inline-block; }
-    .city .people#people2 {
-      background-color: #cd1327; }
-    .city .people#people3 {
-      background-color: #182b82; }
-    .city .people#people4 {
-      background-color: #298e7f; }
-    .city .people#people5 {
-      background-color: #4e7247; }
-    .city .people#people6 {
-      background-color: #3a4659; }
-    .city .people#people7 {
-      background-color: #ac5482; }
-    .city .people#people8 {
-      background-color: #26499d; }
-    .city .people#people9 {
-      background-color: #fff3da; }
-    .city .people#people10 {
-      background-color: #fcfdfd; }
     .city .people#people11 {
+      background-color: #cd1327; }
+    .city .people#people10 {
+      background-color: #182b82; }
+    .city .people#people9 {
+      background-color: #298e7f; }
+    .city .people#people8 {
+      background-color: #4e7247; }
+    .city .people#people7 {
+      background-color: #3a4659; }
+    .city .people#people6 {
+      background-color: #ac5482; }
+    .city .people#people5 {
+      background-color: #26499d; }
+    .city .people#people4 {
+      background-color: #fff3da; }
+    .city .people#people3 {
+      background-color: #fcfdfd; }
+    .city .people#people2 {
       background-color: #a91f2b; }
-    .city .people#people12 {
+    .city .people#people1 {
       background-color: #e61220; }
-    .city .people#people13 {
+    .city .people#people0 {
       background-color: #a2acb0; }
 
 /*# sourceMappingURL=index.css.map */

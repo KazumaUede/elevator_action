@@ -1,55 +1,49 @@
 $(function(){
 	var elevator = 6;
-	var floor = 13;
+	var floors = 13;
+	var calcfloors =floors - 1;
 	var flag =[];
+	var ary = [];
+	var priority =[];
+	var stand = [];
+	var members = [];
 	for (var i = 0; i < elevator; i++){
 		flag.push(true);
-	}
-	var ary = [];
-	for (var i = 0; i < elevator; i++){
 		ary.push([]);
-	}
-	var priority =[];
-	for (var i = 0; i < elevator; i++){
 		priority.push(false);
 	}
-	var stand = [];
-
-// $('.floor:eq(12)').css({"background-color" : "#f4d420"});
-	// for (var i = 0; i < 6; i++){
-		// $('#elevator'+ i +' #F1').css({"background-color" : "#f4d420"});
-	// }
-
+	for (var i = 0; i < calcfloors; i++){
+		members[i] = 0;
+	}
 
 	//エレベーターをあげる
 	function up_elevator(num,floor,time,array){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
-			$('#elevator'+ num +' #F' + floor +' .people').appendTo('#elevator'+ num +' #F' + (floor + 1))
-			$('#elevator'+ num +' #F' + floor ).css({"background-color" : "#26499d"});
-			$('#elevator'+ num +' #F' + ++floor ).css({"background-color" : "#f4d420"});
+			// console.log(floor);
+			$('.elevator:eq('+ num +') .floor:eq('+ floor +') .people').appendTo('.elevator:eq('+ num +') .floor:eq('+ (floor - 1) +')');
+			$('.elevator:eq('+ num +') .floor:eq('+ floor +')').css({"background-color" : "#26499d"});
+			$('.elevator:eq('+ num +') .floor:eq('+ --floor +')').css({"background-color" : "#f4d420"});
+
 			//人を下ろす
-			if(array.find(item => item === floor)){
+			if(array.find(item => item === floor) || floor === 0){
 				//何人下ろすか数える
 				var count = array.filter(num => num == floor).length;
 				//降りる人数の要素を追加する
-				$('#elevator'+ num +' #F' + floor +' #people' + floor).remove();
-				for(var i = 0; i < count; i++){
-					$('#count' + floor).append("<p></p>");
-				}
+				$('.elevator:eq('+ num +') .floor:eq('+ floor +') #people' + floor).remove();
+				members[floor] += count;
 				//人数の情報を消す
-				$('#sum' + floor + ' p').remove();
-				$('#sum1 p').remove();
-				var sum = $('#count' + floor + ' p').length;
-				$('#sum' + floor).append('<p>' + sum +'人</p>');
+				$('.gate:eq('+ floor +') .sum p').remove();
+				$('.gate:eq('+ calcfloors +') .sum p').remove();
+				$('.gate:eq('+ floor +') .sum').append('<p>' + members[floor] +'人</p>');
 				var sumall = 0;
-				for(var i = 2; i < 14; i++){
-					sumall += $('#count' + i + ' p').length
+				for(var i = 0; i < calcfloors; i++){
+					sumall += members[i];
 				}
-				$('#sum1').append('<p>' + sumall +'人</p>');
+				$('.gate:eq('+ calcfloors +') .sum').append('<p>' + sumall +'人</p>');
 			}
-			var timer = array.find(item => item === floor)? 8000 : 2000;
-			if(floor < array.reduce((a,b)=>a>b?a:b)){
+			var timer = array.find(item => item === floor) || floor === 0? 10000 : 2000;
+			if(floor > array.reduce((a,b)=>a<b?a:b)){
 				up_elevator(num,floor,timer,array);
 			}else{
 				down_elevator(num,floor,timer);
@@ -60,9 +54,10 @@ $(function(){
 	function down_elevator(num,floor,time){
 		var eletimer = setTimeout(function(){
 			clearTimeout(eletimer);
-			$('#elevator'+ num +' #F' + floor).css({"background-color" : "#26499d"});
-			$('#elevator'+ num +' #F' + --floor).css({"background-color" : "#f4d420"});
-			if(floor >1){
+			$('.elevator:eq('+ num +') .floor:eq('+ floor +')').css({"background-color" : "#26499d"});
+			$('.elevator:eq('+ num +') .floor:eq('+ ++floor +')').css({"background-color" : "#f4d420"});
+			// console.log(num +'番は'+ floor +'階');
+			if(floor < calcfloors){
 				down_elevator(num,floor,2000);
 			}else{
 				var waitary =[];
@@ -72,17 +67,14 @@ $(function(){
 						break;
 					}
 				}
-				$('#elevator'+ num +'  #F1').append($('#stand0 .people:lt(' + waitary.length +')'));
-				// var aryset = ary[num];
-				// aryset = waitary;
+				console.log(num +'番は'+ waitary.length +'人乗るぞ');
+				$('.elevator:eq('+ num +') .floor:eq(' + calcfloors + ')').append($('.standby:eq(0) .people:lt(' + waitary.length +')'));
 				ary[num] = waitary;
-				console.log(ary[num]);
+				// console.log(ary[num]);
 				if (ary[num].length >=20){
 					notice_elevator(num,ary[num]);
-					up_elevator(num,1,10000,ary[num]);
+					up_elevator(num,calcfloors,10000,ary[num]);
 				}else{
-					console.log("まだです");
-					console.log(ary[num]);
 					priority[num] = ary[num].length > 0? true:false;
 					flag[num] = true;
 					standby(num,flag[num],ary[num]);
@@ -93,66 +85,43 @@ $(function(){
 	}
 	//止まる階をオレンジで予告
 	function notice_elevator(num,array){
-		for(var i = 1; i < 14; i++){
-			if(array.find(item => item === i)){
-				$('#elevator'+ num +' #F' + i).css({"background-color" : "#f18e10"});
-			}
-		}
+		array.forEach(function( value ) {
+		     $('.elevator:eq('+ num +') .floor').eq(value).css({"background-color" : "#f18e10"});
+		});
 	}
-
+	//エレベーターに人お載せる
+	function enter_the_elevator(num,a){
+				priority[num] = true;
+				var setary = ary[num];
+				setary.push(a);
+				$('.elevator:eq(' + num +') .floor').eq(calcfloors).append('<div class="people" id ="people'+ a +'"></div>');
+				flag[num] = setary.length >=20? false:true;
+	}
 
 
 	function people2(){
 		var timer = setTimeout(function(){
+			//人を生成(いずれphpにさせる)
 			clearTimeout(timer);
-			var min = 2 ;
-			var max = 13 ;
+			var min = 0 ;
+			var max = 11 ;
 			var a = Math.floor( Math.random() * (max + 1 - min) ) + min;
+			//振り分ける(すでに人が乗っているエレベーターが優先)
 			if(flag[0] === true && priority[1] === false && priority[2] === false && priority[3] === false && priority[4] === false && priority[5] === false){
-				priority[0] = true;
-				// array0.push(a);
-				var setary = ary[0];
-				setary.push(a);
-				$('#elevator'+ 0 +'  #F1').append('<div class="people" id ="people'+ a +'"></div>');
-				flag[0] = setary.length >=20? false:true;
+				enter_the_elevator(0,a);
 			}else if(flag[1] === true && priority[2] === false && priority[3] === false && priority[4] === false && priority[5] === false){
-				priority[1] = true;
-				var setary = ary[1];
-				setary.push(a);
-				// array1.push(a);
-				$('#elevator'+ 1 +'  #F1').append('<div class="people" id ="people'+ a +'"></div>');
-				flag[1] = setary.length >=20? false:true;
+				enter_the_elevator(1,a);
 			}else if(flag[2] === true && priority[3] === false && priority[4] === false && priority[5] === false){
-				priority[2] = true;
-				var setary = ary[2];
-				setary.push(a);
-				// array2.push(a);
-				$('#elevator'+ 2 +'  #F1').append('<div class="people" id ="people'+ a +'"></div>');
-				flag[2] = setary.length >=20? false:true;
+				enter_the_elevator(2,a);
 			}else if(flag[3] === true && priority[4] === false && priority[5] === false){
-				priority[3] = true;
-				var setary = ary[3];
-				setary.push(a);
-				// array3.push(a);
-				$('#elevator'+ 3 +'  #F1').append('<div class="people" id ="people'+ a +'"></div>');
-				flag[3] = setary.length >=20? false:true;
+				enter_the_elevator(3,a);
 			}else if(flag[4] === true && priority[5] === false){
-				priority[4] = true;
-				var setary = ary[4];
-				setary.push(a);
-				// array4.push(a);
-				$('#elevator'+ 4 +'  #F1').append('<div class="people" id ="people'+ a +'"></div>');
-				flag[4] = setary.length >=20? false:true;
+				enter_the_elevator(4,a);
 			}else if(flag[5] === true){
-				priority[5] = true;
-				var setary = ary[5];
-				setary.push(a);
-				// array5.push(a);
-				$('#elevator'+ 5 +'  #F1').append('<div class="people" id ="people'+ a +'"></div>');
-				flag[5] = setary.length >=20? false:true;
+				enter_the_elevator(5,a);
 			}else{
 				stand.push(a);
-				$('#stand0').append('<div class="people" id ="people'+ a +'"></div>');
+				$('.standby').eq(0).append('<div class="people" id ="people'+ a +'"></div>');
 			}
 			people2();
 		},1000);
@@ -168,9 +137,8 @@ $(function(){
 
 				console.log("エレベーター"+ num + "出発");
 				notice_elevator(num,standary);
-				up_elevator(num,1,2000,standary);
+				up_elevator(num,calcfloors,2000,standary);
 			}else{
-				// var aryset = ary[num];
 				standby(num,flag[num],standary);
 			}
 		},1000);
@@ -181,7 +149,6 @@ $(function(){
 
 	$(function(){
 		for(var i = 0; i < 6; i++){
-			// var aryset = ary[i];
 			standby(i,flag[i],ary[i]);
 		}
 		people2();
