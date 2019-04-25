@@ -170,7 +170,7 @@
 		}
 		.right{
 			height: calc(90vh - 60px);
-			width: 50vw;
+			width: calc(50vw - 100px);
 			position: relative;
 			@include buildings;
 		}
@@ -180,6 +180,10 @@
 		height: 10vh;
 		width: 100%;
 		background-color: #769d41;
+		.result{
+			font-size: 32px;
+			color: $white;
+		}
 	}
 	.people{
 		height: 15px;
