@@ -180,21 +180,24 @@ $(function(){
 
 			//振り分ける(右用、近い階同士を集める)
 			switch(a){
-				case 0:
-				case 1: var elenum = elevator; break;
-				case 2:
-				case 3: var elenum = elevator + 1; break;
-				case 4:
-				case 5: var elenum = elevator + 2; break;
-				case 6:
-				case 7: var elenum = elevator + 3; break;
-				case 8:
-				case 9: var elenum = elevator + 4; break;
+				case 0: var elenum = elevator; break;
+				case 1:
+				case 2: var elenum = elevator + 1; break;
+				case 3:
+				case 4: var elenum = elevator + 2; break;
+				case 5:
+				case 6: var elenum = elevator + 3; break;
+				case 7:
+				case 8: var elenum = elevator + 4; break;
+				case 9:
 				case 10:
 				case 11: var elenum = elevator + 5; break;
 			}
+			var beforenum = elenum -1;
 			if (flag[elenum]){
 				enter_the_elevator(elenum,a,right);
+			}else if((elenum === elevator + 1 || elenum === elevator + 5) && flag[beforenum]){
+				enter_the_elevator(beforenum,a,right);
 			}else{
 				$(right +'.standby').eq(elenum - elevator).append('<div class="people" id ="people'+ a +'"></div>');
 				var setary = stand2[elenum];
@@ -206,10 +209,10 @@ $(function(){
 				standall+= j.length;
 			}
 			if(stand.length >=500){
-				$('.ground').append('<div class="result">左ビルキャパオーバー!!右ビルの勝ち！！</div>');
+				$('.ground').append('<div class="result">左ビルキャパオーバー!!社員投入を終了します</div>');
 				return false;
 			}else if(standall >=500){
-				$('.ground').append('<div class="result">右ビルキャパオーバー!!左ビルの勝ち！！</div>');
+				$('.ground').append('<div class="result">右ビルキャパオーバー!!社員投入を終了します</div>');
 				return false;
 			}else{
 				people2();
