@@ -6,7 +6,10 @@
 ?>
 <div class ="city">
 	<div class ="sky">
-		<div class ="content_left">
+		<div class ="left">
+			<?php require("./template/building.php"); ?>
+		</div>
+		<div class ="right">
 			<?php require("./template/building.php"); ?>
 		</div>
 	</div>
