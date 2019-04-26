@@ -251,36 +251,3 @@ $(function(){
 		people2();
 	});
 });
-
-
-
-
-
-$(function(){
-	var appendhtml = "";
-	$(document).on('click','#button',function(){
-		event.preventDefault();
-		$.ajax({
-			url:"index.php",
-			data: {
-				d_station: $("select[name='d_station']").val(),
-				a_station: $("select[name='a_station']").val(),
-					 send: $("input[name='send']").val(),
-			},
-			//json形式
-			dataType: 'json',
-			type: "POST"
-		}).done(function(response) {
-			// $('tr').remove();
-			$('.routes').remove();
-			var appendhtml;
-			// console.log(response);
-			var station_name;
-			appendhtml = '<div class="routes">'  + response + '</div>';
-			$('.result').append(appendhtml)
-		}).fail(function() {
-			alert("通信エラー");
-		});
-	});
-
-});
