@@ -2,20 +2,20 @@
   min-height: 100%;
   min-width: 100%; }
   .city .sky {
-    min-height: calc(90vh - 60px);
+    height: 1200px;
     min-width: 100%;
     background-color: skyblue;
     display: flex; }
     .city .sky .left {
-      height: calc(90vh - 60px);
+      height: 100%;
       width: 50vw;
       position: relative; }
       .city .sky .left .buildings {
-        height: 1100px;
+        height: 1150px;
         width: 100%;
         position: absolute;
         bottom: 0;
-        left: 70px;
+        left: 30px;
         display: flex; }
         .city .sky .left .buildings .gates {
           height: 100%;
@@ -68,7 +68,7 @@
               color: lblack; }
         .city .sky .left .buildings .building {
           height: 100%;
-          width: 700px;
+          width: 40vw;
           background-color: #c8ced1;
           position: relative; }
           .city .sky .left .buildings .building .elevators {
@@ -100,7 +100,7 @@
                 list-style: none; }
                 .city .sky .left .buildings .building .elevators .elevator .floors .floor {
                   height: calc(100% / 13 - 20px);
-                  width: 60px;
+                  width: 50px;
                   background-color: #26499d;
                   margin-top: 20px;
                   margin-left: 50px;
@@ -108,15 +108,15 @@
                   .city .sky .left .buildings .building .elevators .elevator .floors .floor:nth-child(13) {
                     background-color: #f4d420; }
     .city .sky .right {
-      height: calc(90vh - 60px);
-      width: calc(50vw - 100px);
+      height: 100%;
+      width: 50vw;
       position: relative; }
       .city .sky .right .buildings {
-        height: 1100px;
+        height: 1150px;
         width: 100%;
         position: absolute;
         bottom: 0;
-        left: 70px;
+        left: 30px;
         display: flex; }
         .city .sky .right .buildings .gates {
           height: 100%;
@@ -169,7 +169,7 @@
               color: lblack; }
         .city .sky .right .buildings .building {
           height: 100%;
-          width: 700px;
+          width: 40vw;
           background-color: #c8ced1;
           position: relative; }
           .city .sky .right .buildings .building .elevators {
@@ -201,7 +201,7 @@
                 list-style: none; }
                 .city .sky .right .buildings .building .elevators .elevator .floors .floor {
                   height: calc(100% / 13 - 20px);
-                  width: 60px;
+                  width: 50px;
                   background-color: #26499d;
                   margin-top: 20px;
                   margin-left: 50px;
@@ -217,7 +217,7 @@
       color: #fcfdfd; }
   .city .people {
     height: 15px;
-    width: 12px;
+    width: 10px;
     border-radius: 50%;
     border: 1px solid #00090d;
     display: inline-block; }
