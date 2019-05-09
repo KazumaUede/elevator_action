@@ -26,125 +26,80 @@
   $ryellow: #e9bd32;
 @mixin buildings {
 	.buildings{
-			// height: 1100px;
-			height: 1150px;
-			width : 100%;
+			// height: 1150px;
+      background:repeating-linear-gradient($white 0, $white 80px, #e2e7eb 80px, #e2e7eb 160px);
 			position:absolute;
-			// padding-top: 10px;
 			bottom: 0;
 			left: 30px;
 			display: flex;
-		.gates{
-			height :100%;
-			width: 10%;
-			// width: 100px;
-			margin-right: 50px;
-			.gate {
-				height : calc(100% / 13 - 20px);
-				width: 90%;
-				font-size: 20px;
-				background-color:#fcfdf1;
-				margin-top :20px;
-				margin-left : 20px;
-				&#F1{
-					display: table;
-				}
-				&:nth-child(#{12}){
-					background-color: $red;
-					color: $white;
-				}
-				&:nth-child(#{11}){
-					background-color: $marine;
-					color: $white;
-				}
-				&:nth-child(#{10}){
-					background-color: $turquoize;
-					color: $white;
-				}
-				&:nth-child(#{9}){
-					background-color: $green;
-					color: $white;
-				}
-				&:nth-child(#{8}){
-					background-color: $bblue;
-					color: $white;
-				}
-				&:nth-child(#{7}){
-					background-color: $azalea;
-					color: $white;
-				}
-				&:nth-child(#{6}){
-					background-color: $cblue;
-					color: $white;
-				}
-				&:nth-child(#{5}){
-					background-color: $light;
-					color: lblack;
-				}
-				&:nth-child(#{4}){
-					background-color: $white;
-					color: lblack;
-				}
-				&:nth-child(#{3}){
-					background-color: $cardinal;
-					color: $white;
-				}
-				&:nth-child(#{2}){
-					background-color: $pred;
-					color: $white;
-				}
-				&:nth-child(#{1}){
-					background-color: $cgray;
-					color: lblack;
-				}
-			}
-		}
-
+      z-index: 0;
 		.building{
 			height :100%;
-			// height :1100px;
-			// width: 700px;
-			width: 40vw;
-			background-color:#c8ced1;
+      width: 100%;
+			// background-color:#c8ced1;
 			position: relative;
+      .floorplate{
+
+        height: 100%;
+        position: absolute;
+        left: 0;
+        .plate{
+          font-size: 40px;
+          margin-bottom: 40px;
+          color: $cement;
+          z-index: 1;
+          // margin-top: 80px;
+        }
+      }
 			.elevators{
 				height :100%;
 				width :calc(100% - 100px);
-				// margin-left:100px;
 				display: flex;
 				.elevator{
-					@for $j from 2 through 6 {
-						&:nth-child(#{$j}){
-							margin-left:50px;
-						}
-					}
+					// background-color: $cblue;
 					.standby {
 						height : calc(100% / 13 - 20px);
 						width: 75px;
-						// background-color: green;
 						position:absolute;
 						bottom: 0;
 						display: table;
 					}
 					display: flex;
 					.floors{
+            z-index: 2;
 						height :100%;
-						width : 50px;
-						margin-right :10px;
-
+						width : 60px;
 						list-style: none;
-						.floor{
-							height : calc(100% / 13 - 20px);
-							width : 50px;
-							background-color: #26499d;
-							margin-top :20px;
-							margin-left: 50px;
-							display: table;
-							&:nth-child(#{13}){
-								background-color: $yellow;
+            .flame{
+              height : 60px;
+              background-color: $cgray;
+              margin-top: 20px;
+              padding: 5px;
+                // position: absolute;
+                // bottom: 0;
+              .floor{
+                height: 100%;
+                width : 50px;
+                background-color: $yellow;
+                display: table;
+                .door{
+                  // border: 1px solid $lblack;
+                  display: flex;
+                  &left,&right{
+                    z-index: 3;
+                    height: 50px;
+                    width: 25px;
+                  }
+                  &left{
+                    background-color: $igray;
+                  }
+                  &right{
+                    background-color: $gray;
+                  }
+                }
+              }
+            }
 
-							}
-						}
 					}
 				}
 
@@ -158,23 +113,22 @@
 .city{
 	min-height: 100%;
 	min-width: 100%;
+  background-color: skyblue;
 	.sky{
-		// min-height: calc(90vh - 60px);
-		height: 1200px;
+    height: 90vh;
+		// height: 100%;
 		min-width: 100%;
 		background-color: skyblue;
 		display: flex;
 		.left{
-			// height: calc(90vh - 60px);
+      margin-left: 50px;
 			height :100%;
-			width: 50vw;
 			position: relative;
 			@include buildings;
 		}
 		.right{
-			// height: calc(90vh - 60px);
 			height :100%;
-			width: 50vw;
+      // margin-left: 600px;
 			position: relative;
 			@include buildings;
 		}
@@ -182,54 +136,16 @@
 	}
 	.ground{
 		height: 10vh;
-		width: 100%;
+    min-width: 100%;
 		background-color: #769d41;
 		.result{
 			font-size: 64px;
 			color: $white;
 		}
 	}
-	.people{
-		height: 15px;
-		width: 10px;
-		border-radius:50%;
-		border: 1px solid #00090d;
-		display: inline-block;
-		&#people11{
-			background-color: $red;
-		}
-		&#people10{
-			background-color: $marine;
-		}
-		&#people9{
-			background-color: $turquoize;
-		}
-		&#people8{
-			background-color: $green;
-		}
-		&#people7{
-			background-color: $bblue;
-		}
-		&#people6{
-			background-color: $azalea;
-		}
-		&#people5{
-			background-color: $cblue;
-		}
-		&#people4{
-			background-color: $light;
-		}
-		&#people3{
-			background-color: $white;
-		}
-		&#people2{
-			background-color: $cardinal;
-		}
-		&#people1{
-			background-color: $pred;
-		}
-		&#people0{
-			background-color: $cgray;
-		}
-	}
+  .man{
+    height:40px;
+    width:100%;
+    background: url('../image/man.png')
+  }
 }

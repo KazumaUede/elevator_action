@@ -1,92 +1,42 @@
 .city {
   min-height: 100%;
-  min-width: 100%; }
+  min-width: 100%;
+  background-color: skyblue; }
   .city .sky {
-    height: 1200px;
+    height: 90vh;
     min-width: 100%;
     background-color: skyblue;
     display: flex; }
     .city .sky .left {
+      margin-left: 50px;
       height: 100%;
-      width: 50vw;
       position: relative; }
       .city .sky .left .buildings {
-        height: 1150px;
-        width: 100%;
+        background: repeating-linear-gradient(#fcfdfd 0, #fcfdfd 80px, #e2e7eb 80px, #e2e7eb 160px);
         position: absolute;
         bottom: 0;
         left: 30px;
-        display: flex; }
-        .city .sky .left .buildings .gates {
-          height: 100%;
-          width: 10%;
-          margin-right: 50px; }
-          .city .sky .left .buildings .gates .gate {
-            height: calc(100% / 13 - 20px);
-            width: 90%;
-            font-size: 20px;
-            background-color: #fcfdf1;
-            margin-top: 20px;
-            margin-left: 20px; }
-            .city .sky .left .buildings .gates .gate#F1 {
-              display: table; }
-            .city .sky .left .buildings .gates .gate:nth-child(12) {
-              background-color: #cd1327;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(11) {
-              background-color: #182b82;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(10) {
-              background-color: #298e7f;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(9) {
-              background-color: #4e7247;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(8) {
-              background-color: #3a4659;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(7) {
-              background-color: #ac5482;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(6) {
-              background-color: #26499d;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(5) {
-              background-color: #fff3da;
-              color: lblack; }
-            .city .sky .left .buildings .gates .gate:nth-child(4) {
-              background-color: #fcfdfd;
-              color: lblack; }
-            .city .sky .left .buildings .gates .gate:nth-child(3) {
-              background-color: #a91f2b;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(2) {
-              background-color: #e61220;
-              color: #fcfdfd; }
-            .city .sky .left .buildings .gates .gate:nth-child(1) {
-              background-color: #a2acb0;
-              color: lblack; }
+        display: flex;
+        z-index: 0; }
         .city .sky .left .buildings .building {
           height: 100%;
-          width: 40vw;
-          background-color: #c8ced1;
+          width: 100%;
           position: relative; }
+          .city .sky .left .buildings .building .floorplate {
+            height: 100%;
+            position: absolute;
+            left: 0; }
+            .city .sky .left .buildings .building .floorplate .plate {
+              font-size: 40px;
+              margin-bottom: 40px;
+              color: #747a7e;
+              z-index: 1; }
           .city .sky .left .buildings .building .elevators {
             height: 100%;
             width: calc(100% - 100px);
             display: flex; }
             .city .sky .left .buildings .building .elevators .elevator {
               display: flex; }
-              .city .sky .left .buildings .building .elevators .elevator:nth-child(2) {
-                margin-left: 50px; }
-              .city .sky .left .buildings .building .elevators .elevator:nth-child(3) {
-                margin-left: 50px; }
-              .city .sky .left .buildings .building .elevators .elevator:nth-child(4) {
-                margin-left: 50px; }
-              .city .sky .left .buildings .building .elevators .elevator:nth-child(5) {
-                margin-left: 50px; }
-              .city .sky .left .buildings .building .elevators .elevator:nth-child(6) {
-                margin-left: 50px; }
               .city .sky .left .buildings .building .elevators .elevator .standby {
                 height: calc(100% / 13 - 20px);
                 width: 75px;
@@ -94,100 +44,59 @@
                 bottom: 0;
                 display: table; }
               .city .sky .left .buildings .building .elevators .elevator .floors {
+                z-index: 2;
                 height: 100%;
-                width: 50px;
-                margin-right: 10px;
+                width: 60px;
                 list-style: none; }
-                .city .sky .left .buildings .building .elevators .elevator .floors .floor {
-                  height: calc(100% / 13 - 20px);
-                  width: 50px;
-                  background-color: #26499d;
+                .city .sky .left .buildings .building .elevators .elevator .floors .flame {
+                  height: 60px;
+                  background-color: #a2acb0;
                   margin-top: 20px;
-                  margin-left: 50px;
-                  display: table; }
-                  .city .sky .left .buildings .building .elevators .elevator .floors .floor:nth-child(13) {
-                    background-color: #f4d420; }
+                  padding: 5px; }
+                  .city .sky .left .buildings .building .elevators .elevator .floors .flame .floor {
+                    height: 100%;
+                    width: 50px;
+                    background-color: #f4d420;
+                    display: table; }
+                    .city .sky .left .buildings .building .elevators .elevator .floors .flame .floor .door {
+                      display: flex; }
+                      .city .sky .left .buildings .building .elevators .elevator .floors .flame .floor .doorleft, .city .sky .left .buildings .building .elevators .elevator .floors .flame .floor .doorright {
+                        z-index: 3;
+                        height: 50px;
+                        width: 25px; }
+                      .city .sky .left .buildings .building .elevators .elevator .floors .flame .floor .doorleft {
+                        background-color: #c8ced1; }
+                      .city .sky .left .buildings .building .elevators .elevator .floors .flame .floor .doorright {
+                        background-color: #a2a9a9; }
     .city .sky .right {
       height: 100%;
-      width: 50vw;
       position: relative; }
       .city .sky .right .buildings {
-        height: 1150px;
-        width: 100%;
+        background: repeating-linear-gradient(#fcfdfd 0, #fcfdfd 80px, #e2e7eb 80px, #e2e7eb 160px);
         position: absolute;
         bottom: 0;
         left: 30px;
-        display: flex; }
-        .city .sky .right .buildings .gates {
-          height: 100%;
-          width: 10%;
-          margin-right: 50px; }
-          .city .sky .right .buildings .gates .gate {
-            height: calc(100% / 13 - 20px);
-            width: 90%;
-            font-size: 20px;
-            background-color: #fcfdf1;
-            margin-top: 20px;
-            margin-left: 20px; }
-            .city .sky .right .buildings .gates .gate#F1 {
-              display: table; }
-            .city .sky .right .buildings .gates .gate:nth-child(12) {
-              background-color: #cd1327;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(11) {
-              background-color: #182b82;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(10) {
-              background-color: #298e7f;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(9) {
-              background-color: #4e7247;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(8) {
-              background-color: #3a4659;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(7) {
-              background-color: #ac5482;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(6) {
-              background-color: #26499d;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(5) {
-              background-color: #fff3da;
-              color: lblack; }
-            .city .sky .right .buildings .gates .gate:nth-child(4) {
-              background-color: #fcfdfd;
-              color: lblack; }
-            .city .sky .right .buildings .gates .gate:nth-child(3) {
-              background-color: #a91f2b;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(2) {
-              background-color: #e61220;
-              color: #fcfdfd; }
-            .city .sky .right .buildings .gates .gate:nth-child(1) {
-              background-color: #a2acb0;
-              color: lblack; }
+        display: flex;
+        z-index: 0; }
         .city .sky .right .buildings .building {
           height: 100%;
-          width: 40vw;
-          background-color: #c8ced1;
+          width: 100%;
           position: relative; }
+          .city .sky .right .buildings .building .floorplate {
+            height: 100%;
+            position: absolute;
+            left: 0; }
+            .city .sky .right .buildings .building .floorplate .plate {
+              font-size: 40px;
+              margin-bottom: 40px;
+              color: #747a7e;
+              z-index: 1; }
           .city .sky .right .buildings .building .elevators {
             height: 100%;
             width: calc(100% - 100px);
             display: flex; }
             .city .sky .right .buildings .building .elevators .elevator {
               display: flex; }
-              .city .sky .right .buildings .building .elevators .elevator:nth-child(2) {
-                margin-left: 50px; }
-              .city .sky .right .buildings .building .elevators .elevator:nth-child(3) {
-                margin-left: 50px; }
-              .city .sky .right .buildings .building .elevators .elevator:nth-child(4) {
-                margin-left: 50px; }
-              .city .sky .right .buildings .building .elevators .elevator:nth-child(5) {
-                margin-left: 50px; }
-              .city .sky .right .buildings .building .elevators .elevator:nth-child(6) {
-                margin-left: 50px; }
               .city .sky .right .buildings .building .elevators .elevator .standby {
                 height: calc(100% / 13 - 20px);
                 width: 75px;
@@ -195,55 +104,40 @@
                 bottom: 0;
                 display: table; }
               .city .sky .right .buildings .building .elevators .elevator .floors {
+                z-index: 2;
                 height: 100%;
-                width: 50px;
-                margin-right: 10px;
+                width: 60px;
                 list-style: none; }
-                .city .sky .right .buildings .building .elevators .elevator .floors .floor {
-                  height: calc(100% / 13 - 20px);
-                  width: 50px;
-                  background-color: #26499d;
+                .city .sky .right .buildings .building .elevators .elevator .floors .flame {
+                  height: 60px;
+                  background-color: #a2acb0;
                   margin-top: 20px;
-                  margin-left: 50px;
-                  display: table; }
-                  .city .sky .right .buildings .building .elevators .elevator .floors .floor:nth-child(13) {
-                    background-color: #f4d420; }
+                  padding: 5px; }
+                  .city .sky .right .buildings .building .elevators .elevator .floors .flame .floor {
+                    height: 100%;
+                    width: 50px;
+                    background-color: #f4d420;
+                    display: table; }
+                    .city .sky .right .buildings .building .elevators .elevator .floors .flame .floor .door {
+                      display: flex; }
+                      .city .sky .right .buildings .building .elevators .elevator .floors .flame .floor .doorleft, .city .sky .right .buildings .building .elevators .elevator .floors .flame .floor .doorright {
+                        z-index: 3;
+                        height: 50px;
+                        width: 25px; }
+                      .city .sky .right .buildings .building .elevators .elevator .floors .flame .floor .doorleft {
+                        background-color: #c8ced1; }
+                      .city .sky .right .buildings .building .elevators .elevator .floors .flame .floor .doorright {
+                        background-color: #a2a9a9; }
   .city .ground {
     height: 10vh;
-    width: 100%;
+    min-width: 100%;
     background-color: #769d41; }
     .city .ground .result {
       font-size: 64px;
       color: #fcfdfd; }
-  .city .people {
-    height: 15px;
-    width: 10px;
-    border-radius: 50%;
-    border: 1px solid #00090d;
-    display: inline-block; }
-    .city .people#people11 {
-      background-color: #cd1327; }
-    .city .people#people10 {
-      background-color: #182b82; }
-    .city .people#people9 {
-      background-color: #298e7f; }
-    .city .people#people8 {
-      background-color: #4e7247; }
-    .city .people#people7 {
-      background-color: #3a4659; }
-    .city .people#people6 {
-      background-color: #ac5482; }
-    .city .people#people5 {
-      background-color: #26499d; }
-    .city .people#people4 {
-      background-color: #fff3da; }
-    .city .people#people3 {
-      background-color: #fcfdfd; }
-    .city .people#people2 {
-      background-color: #a91f2b; }
-    .city .people#people1 {
-      background-color: #e61220; }
-    .city .people#people0 {
-      background-color: #a2acb0; }
+  .city .man {
+    height: 40px;
+    width: 100%;
+    background: url("../image/man.png"); }
 
 /*# sourceMappingURL=index.css.map */

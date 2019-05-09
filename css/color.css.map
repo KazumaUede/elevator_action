@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,IAAI;EACH,KAAK,EAAC,OAAO;EACb,gBAAgB,EAAC,KAAK;EACtB,qBAAqB,EAAE,KAAK",
+"mappings": "AAAA,IAAI;EAEH,gBAAgB,EAAC,OAAO;EACxB,qBAAqB,EAAE,KAAK",
 "sources": ["color.scss"],
 "names": [],
 "file": "color.css"
